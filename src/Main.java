@@ -14,14 +14,17 @@ public class Main {
     }
 
     private static Map<String, Integer> numberOfRepetitions(String[] noll) {
-        Map<String, Integer> two = new HashMap<>();
-        for (int i = 0; i < noll.length; i++) {
-            String word = noll[i];
-            if (two.containsKey(word)) {
-                int count = i + two.get(word);
+        Map<String, Integer> one = new HashMap<>();
+        for (String word : noll) {
+            if (!one.containsKey(word)) {
+                one.put(word, 1);
             }
-    }
-        return two;
+            else {
+                int x=one.get(word);
+                one.put(word, 1+x);
+            }
+        }
+        return one;
     }
 
     private static String[] readFromFile(String file) throws FileNotFoundException {
